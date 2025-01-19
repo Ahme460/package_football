@@ -34,11 +34,12 @@ class Table_league:
 class Player:
     pass
 
+
+
 @dataclass
 class Player_stitic(Player):
     name:str
     id_player:int
-    age:int
     photo:str
     goal:int
     assist:int

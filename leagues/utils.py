@@ -106,7 +106,7 @@ class Comparsone(Top_goall_and_assist):
                     }
                 )
         Goal_and_assist=sorted(Goal_and_assist,key=lambda g_a:g_a['goal_and_assist'] ,reverse=True)
-        return Goal_and_assist[:10]
+        return Goal_and_assist
 
 
 # def filter_by_time(list_data:list):
