@@ -11,7 +11,8 @@ from models_home.get_data_model import Get_data_match
 class Teams_League:
     leagues_all=list[Teams]
     def teams_league(self,url,header,params):
-        data=Get_teams_league.get_teams_league(url,header,params)
+        data=Get_teams_league
+        data=data.get_teams_league(url,header,params)
         leagues_objects=map(lambda teams: Teams(
             id=teams['team']['id'],
             name=teams['team']['name'],
@@ -37,8 +38,9 @@ class Get_matchs(Get_data_match):
 @dataclass
 class Get_Table:
     table_league:List[Table_league]=None
-    def get_data_table(self):
-        data=table_league()
+    def get_data_table(self,url,header,params):
+        data=Table_league()
+        data=data.table_league(url,header,params)
         #print(data)
         table_rank_objects=list(map(lambda row: Table_league(
             ranking=row['rank'],
@@ -59,4 +61,5 @@ class Get_Table:
 
 
 class Get_top_status:
+    pass
     
