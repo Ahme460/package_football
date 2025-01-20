@@ -8,10 +8,8 @@ class Teams:
     img:str
     country:str
 
-
     def __repr__(self) -> str:
         return self.name
-
 
 
 @dataclass
@@ -32,8 +30,11 @@ class Table_league:
 
 
 class Player:
-    pass
-
+    def __init__(self,id,name,postion,pic):
+        self.id=id
+        self.name=name
+        self.postion=postion
+        self.pic=pic
 
 
 @dataclass
@@ -52,4 +53,15 @@ class Player_stitic(Player):
     
 
 
+class Team_statics(Teams):
+    def __init__(self,id,name,img,country,goal,assist):
+       super().__init__(id,name,img,country)
+       self.goal=goal
+       self.assist=assist
+       
+    def __str__(self):
+        return f"team is {self.name} goal this seasin {self.goal}"
+    
+    
 
+    
