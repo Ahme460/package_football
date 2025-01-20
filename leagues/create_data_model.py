@@ -10,8 +10,8 @@ from models_home.get_data_model import Get_data_match
 @dataclass
 class Teams_League:
     leagues_all=list[Teams]
-    def teams_league(self):
-        data=get_teams_league()
+    def teams_league(self,url,header,params):
+        data=Get_teams_league.get_teams_league(url,header,params)
         leagues_objects=map(lambda teams: Teams(
             id=teams['team']['id'],
             name=teams['team']['name'],
