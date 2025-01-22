@@ -21,7 +21,6 @@ class Squed_team:
         "Forwards":[]   
     }
     
-    
     def __get_team_players(self,fun:Callable):
         return fun()
     

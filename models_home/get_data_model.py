@@ -2,6 +2,8 @@ from .ulits import *
 from .model import *
 from dataclasses import dataclass
 from typing import List ,Callable
+from datetime import datetime
+import pytz 
 
 
 #get league data 1
@@ -32,11 +34,9 @@ class all_leagues:
 @dataclass
 class Get_data_match:
     data_match:List[Matchs_league]=None
-    
     def get_data_match(self,data:Callable):
         if isinstance(data, dict):
             data = [data] 
-        #print(data)
         match_objects=list(map(lambda match: Matchs_league(
             id_match=match['fixture']['id'],
             id_league=match['league']['id'],
@@ -44,11 +44,10 @@ class Get_data_match:
             team_away=match['teams']['away'],
             status=match['fixture']['status']['long'],
             result=match['goals'],
-            time_match=get_time(match['fixture']['date']),
+            time_match=match['fixture']['date'],
             league_name=match['league']['name']
-
         ),data))
         self.data_match=list(match_objects)
         return self.data_match
-    
+
 

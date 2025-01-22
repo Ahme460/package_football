@@ -16,9 +16,6 @@ class Get_teams_league(Rquest):
         self.rquest_data(url,header,params)
 
 
-        
-    #print(json.dumps(data,indent=4))
-
 #add fun to filter 
 class Last_matchs(Rquest):
     def last_match_result_to_team(self,url,header,params):
