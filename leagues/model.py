@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Dict
+from typing import Dict,Optional
 
 @dataclass
 class Teams:
@@ -14,6 +14,7 @@ class Teams:
 
 @dataclass
 class Table_league:
+    group:Optional[int]=None
     ranking:int
     count_mathc:int
     win_mathc:int
@@ -23,7 +24,6 @@ class Table_league:
     aginst_goal:int
     point:int
     team:dict
-
 
     def __repr__ (self) -> str:
         return f"{self.point}___{self.team['name']}"
@@ -49,8 +49,7 @@ class Player_stitic(Player):
     postion:str
     passes:dict
     tackls:Dict
-    dribbles_succ=int
-    
+    dribbles_succ=int    
 
 
 class Team_statics(Teams):
@@ -61,7 +60,8 @@ class Team_statics(Teams):
        
     def __str__(self):
         return f"team is {self.name} goal this seasin {self.goal}"
-    
-    
 
-    
+
+
+
+
