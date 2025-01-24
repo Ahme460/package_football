@@ -8,13 +8,14 @@ import pytz
 from leagues.utils import Rquest
 
 
-class all_league(Rquest):
-    def all_league(self,url,header,params):
+class All_league_request(Rquest):
+    
+    def rquest_data(self,url,header,params):
         self.rquest_data(url,header,params)
       
         
-class Mathchs_league(Rquest):
-    def get_matchs_by_league(self,url,header,params):
+class Mathchs_league_request(Rquest):
+    def rquest_data(self,url,header,params):
         self.rquest_data(url,header,params)
     
 

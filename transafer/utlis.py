@@ -1,5 +1,5 @@
 from leagues.utils import Rquest
-
+from typing import Callable
 class Get_transfer_team(Rquest):
     def get_transfer_team(self,url,headers,params):
        return self.rquest_data(url,headers,params)
@@ -12,7 +12,7 @@ class Analysis_data:
         else:
             return txt
 
-    def dict_data(self, futch_data: callable):
+    def dict_data(self, futch_data:Callable):
         data = futch_data()
         player_transfer = list(map(lambda i: {
             "id_player": i['player']['id'],

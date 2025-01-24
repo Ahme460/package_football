@@ -19,6 +19,8 @@ class leagues:
 
 @dataclass
 class Matchs_league:
+    name_league:str
+    img_league:str
     id_match:int
     id_league:int
     team_home:dict
