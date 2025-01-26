@@ -19,14 +19,8 @@ class Squed_team:
         "defens":[],
         "Midfielders":[],
         "Forwards":[]   
-    }
-    
-    def __get_team_players(self,fun:Callable):
-        return fun()
-    
-    
-    def formation_team_postion(self,fun):
-        data=self.__get_team_players(fun)
+    }    
+    def formation_team_postion(self,data:Callable):
         for i in data:
             self.__player_data['id']=i['player']['id']
             self.__player_data['name']=i['player']['name']
@@ -44,10 +38,6 @@ class Squed_team:
             
             elif i['statistics'][0]['games']['position'] == 'F':
                 self.__sques['Forwards'].append(Player(**self.__player_data))
-    
-    @property            
-    def sques_team(self):
+
         return self.__sques
-    
-        
             

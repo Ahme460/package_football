@@ -10,9 +10,8 @@ from models_home.get_data_model import Get_data_match
 @dataclass
 class Teams_League:
     leagues_all=list[Teams]
-    def teams_league(self,url,header,params):
-        data=Get_teams_league
-        data=data.get_teams_league(url,header,params)
+    def teams_league(self,data:Callable):
+        data=data
         leagues_objects=map(lambda teams: Teams(
             id=teams['team']['id'],
             name=teams['team']['name'],
@@ -38,10 +37,8 @@ class Get_matchs(Get_data_match):
 @dataclass
 class Get_Table:
     table_league:List[Table_league]=None
-    def get_data_table(self,url,header,params):
-        data=Table_league()
-        data=data.table_league(url,header,params)
-        #print(data)
+    def get_data_table(self,data):
+        data=data
         table_rank_objects=list(map(lambda row: Table_league(
             ranking=row['rank'],
             count_mathc=row['all']['played'],
@@ -58,8 +55,3 @@ class Get_Table:
         print(self.table_league)
         return self.table_league
 
-
-
-class Get_top_status:
-    pass
-    

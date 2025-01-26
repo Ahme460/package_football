@@ -33,8 +33,20 @@ def params_mathcs_league(league_id:int,season:int):
             },
         
     }
-    
-    
+   
+     
+def params_teams_in_league(league_id, season):
+    return {
+    "url" : "https://v3.football.api-sports.io/teams",
+    "header" : {"x-apisports-key": _api_key_},
+    "params" :
+    {
+        "league": league_id,
+        "season": season
+    }
+   }
+
+
 def params_table_league(league_id:int,season:int):
         return {
         "url":"https://v3.football.api-sports.io/standings",

@@ -14,7 +14,7 @@ class All_league_request(Rquest):
         self.rquest_data(url,header,params)
       
         
-class Mathchs_league_request(Rquest):
+class Mathchs_leagues_request_by_date(Rquest):
     def rquest_data(self,url,header,params):
         self.rquest_data(url,header,params)
     

@@ -27,7 +27,7 @@ class Next_match(Rquest):
         self.rquest_data(url,header,params)
    
 
-class Table_league(Rquest):
+class Table_league_request(Rquest):
     def table_league(self,url,header,params):
         self.rquest_data(url,header,params)
 
@@ -63,6 +63,8 @@ class Top_goall_and_assist(Rquest):
     def get_top_assist(self,url,header,params):
        return self.rquest_data(url,header,params)
         
+        
+
 class Comparsone(Top_goall_and_assist):
     def __init__(self,top_goal:callable,top_assist:callable) -> dict:
         self.top_goal=top_goal
@@ -114,3 +116,9 @@ class Comparsone(Top_goall_and_assist):
 #     return nearest_match
 
 
+class Request_GET_Squed(Rquest):
+    def squed_request(self,url,header,params):
+        self.rquest_data(url,header,params)
+        
+        
+        
