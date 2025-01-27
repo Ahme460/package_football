@@ -5,13 +5,10 @@ from typing import List ,Callable
 from datetime import datetime
 import pytz 
 
-
-#get league data 1
-
 @dataclass
-class All_leagues:
+class Base_Leagues:
     leagues_all=list[leagues]
-    def get_all_leagues(self,data):
+    def get_leagues(self,data):
         data=data
         leagues_objects=map(lambda league: leagues(
             id=league['league']['id'],
@@ -20,13 +17,29 @@ class All_leagues:
             image=league['league']['logo'],
             country=league['country']['name']
         ),data)
-
         self.leagues_all = list(leagues_objects)
-
         return self.leagues_all
-        
 
-# get match data 2
+class All_leagues(Base_Leagues):
+
+    def get_all_leagues(self,data):
+        return super().get_leagues(data)
+
+class Top_leagues(Base_Leagues):
+    def __init__(self):
+        self._top_leagues_id= [2, 39, 78, 135, 61]
+    
+    def get_all_leagues(self,data):
+        return super().get_leagues(data)
+    
+    def get_top_leagues(self,data):
+        leagues=self.get_all_leagues(data)
+        leagues=list(filter(lambda top_league: top_league.id in self._top_leagues_id ,leagues))
+        return leagues
+
+
+
+
 
 @dataclass
 class Get_data_match:

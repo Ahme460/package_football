@@ -24,8 +24,23 @@ class All_Leagues_M(Callable_packed):
         return request
     
     def class_data(self):
-        leagues=self.instance.get_all_leagues(self.get_request_class)
+        leagues=self.instance.get_all_leagues(self.get_request_class())
         return leagues
+  
+
+class TOP_Leagues_M(Callable_packed):
+    def __init__(self):
+        self.request=Rquest()
+        self.instance=Top_leagues()
+        
+    def get_request_class(self):
+        request=self.request.rquest_data(**params_all_league())
+        return request
+    
+    def class_data(self):
+        leagues=self.instance.get_top_leagues(self.get_request_class())
+        return leagues
+  
     
     
 class Matchs_M(Callable_packed):
@@ -44,6 +59,48 @@ class Matchs_M(Callable_packed):
         matches=self.instance.return_data(matches)
         return matches
 
+    
+class Matchs_league_M(Callable_packed):
+    def __init__(self):
+        self.instance = Get_data_match() 
+        self.request = Mathchs_leagues_request() 
+    def get_request_class(self,league_id,season):
+        response = self.request.rquest_data(**params_mathcs_league(league_id,season))
+        return response
+
+    def class_data(self,league_id:int,season:int):
+        matches = self.instance.get_data_match(self.get_request_class(league_id,season))
+        return matches
+    
+
+class Last_mathcs_team(Callable_packed):
+    def __init__(self):
+        self.instance = Get_data_match() 
+        self.request = Mathchs_leagues_request()
+        
+    def get_request_class(self,team_id:int,last):
+        return self.request.rquest_data(**params_last_mathcs(team_id,last_n=last))
+    
+    def class_data(self,team_id:int,last):
+        matchs=self.instance.get_data_match(self.get_request_class(team_id,last))
+        return matchs
+    
+    
+
+
+class Next_mathcs_team(Callable_packed):
+    def __init__(self):
+        self.instance = Get_data_match() 
+        self.request = Mathchs_leagues_request()
+        
+    def get_request_class(self,team_id:int,next):
+        return self.request.rquest_data(**params_next_mathcs(team_id,last_n=next))
+    
+    def class_data(self,team_id:int,next):
+        matchs=self.instance.get_data_match(self.get_request_class(team_id,next))
+        return matchs
+    
+ 
 
 class Normal_Matchs_M(Callable_packed):
     def __init__(self, data: str):

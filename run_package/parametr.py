@@ -34,6 +34,30 @@ def params_mathcs_league(league_id:int,season:int):
         
     }
    
+   
+def params_last_mathcs(team_id, last_n=5):
+    return {
+    "url":"https://v3.football.api-sports.io/fixtures",
+    "headers" : {"x-apisports-key": _api_key_},
+    "params" : {
+        "team": team_id,
+        "last": last_n 
+    }
+ }
+    
+def params_next_mathcs(team_id,next=1):
+    return{
+    "url":"https://v3.football.api-sports.io/fixtures",
+    "headers" : {"x-apisports-key": _api_key_},
+    "params" : {
+        "team": team_id,
+        "next": next 
+    }
+        
+    }   
+    
+    
+
      
 def params_teams_in_league(league_id, season):
     return {

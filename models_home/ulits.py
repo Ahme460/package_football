@@ -20,6 +20,13 @@ class Mathchs_leagues_request_by_date(Rquest):
     
 
 
+        
+class Mathchs_leagues_request(Rquest):
+    def rquest_data(self,url,header,params):
+        self.rquest_data(url,header,params)
+    
+
+
 
 
 
