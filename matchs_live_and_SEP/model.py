@@ -38,10 +38,12 @@ class Info_mathc:
 @dataclass    
 class Event:
     time:int
+    team:dict
     player_id:int
     player_name:str
     event_type:str
     detal_event:str
+    comments:str
     
 
 @dataclass   
